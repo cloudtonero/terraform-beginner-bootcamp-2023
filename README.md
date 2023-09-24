@@ -51,3 +51,31 @@ A shebang (pronounce sha-bang) tells the bash script what program to use when in
 
 ChatGpt Recommended this format for bash: `#!/usr/bin/env bash`
 
+- for portability for different OS distribution
+- Will search user's PATH for the base executable
+
+#### Executuion Considerations.
+WHen executing a bash script we can use `./` shorthand notation to execute the bash script.
+e.g `./bin/install_terraform_cli`
+If we are using a script in gitpod.yam, we need to point thwe script to a program that can interprete it.
+e.g `source ./bin/install_terraform_cli`
+
+#### Linux Permission COnsiderations
+
+In order to make the bash script executable, we need to change linix permission for the script to be executable at the user's level.
+
+```sh
+chmod u+x ./bin/install_terraform_cli
+```
+
+we could also alternatively :
+```sh
+chmod 744 ./bin/install_terraform_cli
+```
+
+https://en.wikipedia.org/wiki/chmod
+
+### Gitpod lifecycle (Before, Init, command)
+
+We need to be careful when using the Init because it will not run if we restart an existing workspace. 
+
