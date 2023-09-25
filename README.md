@@ -217,6 +217,14 @@ The **`terraform apply`** command performs a plan just like terraform plan does,
 
 if we want to automatically approve an apply we can provide the auto approve flag eg . **`terraform apply --auto-approve`**
 
+#### Terraform Destroy
+The terraform destroy(**`terraform destroy`**) command terminates resources managed by your Terraform project. This command is the inverse of terraform apply in that it terminates all the resources specified in your Terraform state. It does not destroy resources running elsewhere that are not managed by the current Terraform project.
+
+You can also use the --auto-approve to give permission to destroy. eg
+`terraform destroy --auto-approve`
+
+
+
 #### Terraform Lock Files
 
 **`.terraform.lock.hcl`**: terraform.lock.hcl file is designed to lock provider versions, not module versions. This is to ensure that every Terraform run uses the same provider versions, leading to consistent behavior.
@@ -236,7 +244,7 @@ Note: If you loose this file, you will loose knowing the state of your infrastru
 This is the previous state file of the .terraform.tfstate
 
 
-### Terraform Direcory
+#### Terraform Direcory
 
 `.terraform` directory contain binary of terraform providers.
 
