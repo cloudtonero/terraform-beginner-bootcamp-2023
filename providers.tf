@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "Mrtonero_app"
+
+    workspaces {
+      name = "terra-house-007"
+    }
+  }
   required_providers {
     random = {
       source = "hashicorp/random"
@@ -10,7 +17,6 @@ terraform {
     }
   }
 }
-
 provider "random" {
   
 }

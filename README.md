@@ -301,4 +301,44 @@ The following rules apply for naming buckets in Amazon S3:
 
 - Buckets used with Amazon S3 Transfer Acceleration can't have dots (.) in their names. For more information about Transfer Acceleration, see Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration.
 
+### Issues With Terraform Cloud and Gitpod workspace.
 
+WHen attempting to run `terraform login` it will launch bash in a wiswig view to generate a token. however it doesnt work as expected in gitpod VScode in the browser.
+
+The work around for me was to got to the [terraform cloud](https://app.terraform.io) and manually generate a token for the terraform cloud and pasting it in the token pormpted when i run `terraform login`
+
+
+### Issue with Authenticating terraform cloud with aws
+
+After migrating my statefile to terraform cloud by running `terraform init` you will be prompted to enter move your state file to terraform cloud which you would want to do.
+
+when running a `terraform plan ` i encounter the error below:
+
+```sh
+╷
+│ Error: No valid credential sources found
+│ 
+│   with provider["registry.terraform.io/hashicorp/aws"],
+│   on providers.tf line 24, in provider "aws":
+│   24: provider "aws" {
+│ 
+│ Please see https://registry.terraform.io/providers/hashicorp/aws
+│ for more information about providing credentials.
+│ 
+│ Error: failed to refresh cached credentials, no EC2 IMDS role found,
+│ operation error ec2imds: GetMetadata, request canceled, context deadline
+│ exceeded
+
+```
+
+This error means that the machine in terraform cloud running our terraform plan isnt authenticated with aws.
+
+The work around was to create the env vars below in terraform cloud withbtheir values and mark them as env and sensitive :
+
+- AWS_ACCESS_KEY_ID
+- AWS_SECRET_ACCESS_KEY
+- AWS_DEFAULT_REGION
+
+![Alt text](image.png)
+
+This should fix the issue.
