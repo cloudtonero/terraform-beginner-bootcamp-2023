@@ -217,6 +217,14 @@ The **`terraform apply`** command performs a plan just like terraform plan does,
 
 if we want to automatically approve an apply we can provide the auto approve flag eg . **`terraform apply --auto-approve`**
 
+#### Terraform Destroy
+The terraform destroy(**`terraform destroy`**) command terminates resources managed by your Terraform project. This command is the inverse of terraform apply in that it terminates all the resources specified in your Terraform state. It does not destroy resources running elsewhere that are not managed by the current Terraform project.
+
+You can also use the --auto-approve to give permission to destroy. eg
+`terraform destroy --auto-approve`
+
+
+
 #### Terraform Lock Files
 
 **`.terraform.lock.hcl`**: terraform.lock.hcl file is designed to lock provider versions, not module versions. This is to ensure that every Terraform run uses the same provider versions, leading to consistent behavior.
@@ -236,10 +244,61 @@ Note: If you loose this file, you will loose knowing the state of your infrastru
 This is the previous state file of the .terraform.tfstate
 
 
-### Terraform Direcory
+#### Terraform Direcory
 
 `.terraform` directory contain binary of terraform providers.
 
+AWS => Terraform 
+we crerate created a simple storage bucket called S3 on terrafor by first importing the `AWS` terraform provider as well as the `RANDOM` provider like this:
 
+```hcl
+terraform {
+  required_providers {
+    random = {
+      source = "hashicorp/random"
+      version = "3.5.1"
+    }
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.17.0"
+    }
+  }
+}
+
+provider "random" {
+  
+}
+
+provider "aws" {
+  
+}
+```
+
+when creating an `S3` note that :
+The following rules apply for naming buckets in Amazon S3:
+
+- Bucket names must be between 3 (min) and 63 (max) characters long.
+
+- Bucket names can consist only of lowercase letters, numbers, dots (.), and hyphens (-).
+
+- Bucket names must begin and end with a letter or number.
+
+- Bucket names must not contain two adjacent periods.
+
+- Bucket names must not be formatted as an IP address (for example, 192.168.5.4).
+
+- Bucket names must not start with the prefix xn--.
+
+- Bucket names must not start with the prefix sthree- and the prefix sthree-configurator.
+
+- Bucket names must not end with the suffix -s3alias. This suffix is reserved for access point alias names. For more information, see Using a bucket-style alias for your S3 bucket access point.
+
+- Bucket names must not end with the suffix --ol-s3. This suffix is reserved for Object Lambda Access Point alias names. For more information, see How to use a bucket-style alias for your S3 bucket Object Lambda Access Point.
+
+- Bucket names must be unique across all AWS accounts in all the AWS Regions within a partition. A partition is a grouping of Regions. AWS currently has three partitions: aws (Standard Regions), aws-cn (China Regions), and aws-us-gov (AWS GovCloud (US)).
+
+- bucket name cannot be used by another AWS account in the same partition until the bucket is deleted.
+
+- Buckets used with Amazon S3 Transfer Acceleration can't have dots (.) in their names. For more information about Transfer Acceleration, see Configuring fast, secure file transfers using Amazon S3 Transfer Acceleration.
 
 
