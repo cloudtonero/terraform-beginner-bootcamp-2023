@@ -305,6 +305,12 @@ The following rules apply for naming buckets in Amazon S3:
 
 WHen attempting to run `terraform login` it will launch bash in a wiswig view to generate a token. however it doesnt work as expected in gitpod VScode in the browser.
 
+The login file is stored in 
+
+```sh
+/home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
 The work around for me was to got to the [terraform cloud](https://app.terraform.io) and manually generate a token for the terraform cloud and pasting it in the token pormpted when i run `terraform login`
 
 
@@ -342,3 +348,7 @@ The work around was to create the env vars below in terraform cloud withbtheir v
 ![Alt text](image.png)
 
 This should fix the issue.
+
+### Fixing Terraform Cloud
+
+We have automated this workaround with the following bash script [/bin/generate_tfrc_credentials](./bin/generate_tfrc_credentials)
