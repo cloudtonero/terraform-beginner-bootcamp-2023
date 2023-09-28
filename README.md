@@ -1,5 +1,16 @@
 # Terraform Beginner Bootcamp 2023
 
+
+## Table Of Content
+
+- [Week 0 ](#week--0)
+- [Install Terraform CLI](#install-terraform-cli)
+- [Reinstallation of  Terraform with the Latest Version](#reinstallation-of-terraform-with-the-latest-version)
+  - [Considerations with the Terraform CLI Changes](#considerations-with-the-terraform-cli-changes)
+
+
+
+
 # Week- 0 
 
 The terraform installation script within the gitpod.yaml file encountered an issue. The terraform task in gitpod.yaml reached a point where it required user input. The objective is to ensure that the script runs smoothly without any need for user interaction.
@@ -18,7 +29,7 @@ tasks:
 ```
 The script also had  some key deprecation which was also an issue in the during the installation.
 
-## Reinstalltion Terraform with the Latest Version.
+## Reinstallation of  Terraform with the Latest Version.
 
 Going through the the terraform installation instruction which can be found in (terraform.io) a new set of installation guild was found.
 
