@@ -6,22 +6,13 @@ resource "random_string" "bucket_name" {
   upper = false
 }
 
-output "random_bucket_name" {
-  value = random_string.bucket_name.result
-}
 
-variable "b-name" {
-  default = "mrtonero"
-}
 ## s3 bucket 
 resource "aws_s3_bucket" "my_bucket" {
   bucket = "mrtonero-${random_string.bucket_name.result}"
 
   tags = {
-    Name = "Bootcamp_Bucket"
+    UserUuid = var.user_uuid
   }
 }
 
-output "bucket-name" {
-  value = aws_s3_bucket.my_bucket.tags
-}
