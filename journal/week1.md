@@ -17,3 +17,33 @@ PROJECT_ROOT
 ```
 
 [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
+
+## Terraform and input variables 
+### Terraform Cloud Variables
+
+In terraform we can set two kind of variable
+- Environment Variable - those you will set in the bash terminal eg AWS Credential
+- Terraform variables - Those that you would normall set in your tfvar file
+
+We can set terraform cloud variables to be sensitive so they are not shown visisbly in the UI
+
+### Loading terraform Variables
+
+[Terraform input variable](https://developer.hashicorp.com/terraform/language/values/variables)
+
+### Var Flag
+we can use the `-var` flag to set an input variable or override a variable in the tfvars file eg. `terraform plan -var user_uuid="my-user_uuid"`
+
+### var-file flag
+
+- TODO: research the flag 
+
+### terraform Tfvars
+
+This is the default file to load in terraform file to load in terraform variable in blunk
+
+### auto .tfvars
+- TODO: research this functionality for terraform cloud.
+
+### Order of terraform Variables
+- TODO : document which terraform variables takes precedence
