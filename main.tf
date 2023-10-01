@@ -1,10 +1,15 @@
+#terraform {
+  #cloud {
+   # organization = "Mrtonero_app"
 
-## s3 bucket 
-resource "aws_s3_bucket" "website_bucket" {
-  bucket = "mrtonero-${var.bucket_name}" 
+    #workspaces {
+     # name = "terra-house-007"
+    #}
+  #}
+#}
 
-  tags = {
-    UserUuid = var.user_uuid
-  }
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.user_uuid
+  bucket_name = var.bucket_name
 }
-
