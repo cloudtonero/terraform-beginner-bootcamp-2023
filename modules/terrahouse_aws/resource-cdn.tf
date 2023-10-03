@@ -68,6 +68,6 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     cloudfront_default_certificate = true
   }
 
-  retain_on_delete = true
+  #retain_on_delete = true
 }
 
