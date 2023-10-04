@@ -252,3 +252,15 @@ he remote-exec provisioner invokes a script on a remote resource after it is cre
 
 ```
 [Terraform Remote-exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
+
+## For Each Expressions
+
+For each allows us to enumerate over a complex data type 
+
+```sh
+[for s in var.list : upper(s)]
+
+```
+This is mostly useful when you are creating multiples of a cloud resources and want to reduce the amount of repetitive terraform code.
+
+[For_each Expressions](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
