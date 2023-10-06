@@ -1,6 +1,7 @@
 output "bucket_name" {
   description = "Bucket name for our static website "
   value = module.terrahouse_aws.bucket-name
+  sensitive = true
 }
 
 output "s3_website_endpoint" {
