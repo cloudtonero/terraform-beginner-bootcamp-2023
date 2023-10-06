@@ -1,12 +1,12 @@
-#terraform {
-  #cloud {
-   # organization = "Mrtonero_app"
+terraform {
+  cloud {
+    organization = "Mrtonero_app"
 
-    #workspaces {
-     # name = "terra-house-007"
-    #}
-  #}
-#}
+    workspaces {
+      name = "terraform-cloud"
+    }
+  }
+}
 
 module "terrahouse_aws" {
   source = "./modules/terrahouse_aws"

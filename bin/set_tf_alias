@@ -7,6 +7,9 @@ if [ $? -ne 0 ]; then
 #if the alias doesnt exist append it to the bash_profile
 echo "alias tf='terraform'" >> ~/.bash_profile
 echo "alias cls='clear'" >> ~/.bash_profile
+echo "alias tf-apply-auto='terraform apply --auto-approve'" >> ~/.bash_profile
+echo "alias tf-destroy-auto='terraform destroy --auto-approve'" >> ~/.bash_profile
+
 echo "Alias Added successfully."
 
 else
@@ -17,3 +20,5 @@ source ~/.bash_profile
 
 source ~/.bash_profile
 
+source ~/.bash_profile
+source ~/.bash_profile
