@@ -43,7 +43,7 @@ func Provider() *schema.Provider {
 				Required: true,
 				Description: "The bearer token for authorization",
 			},
-			"user_uud": {
+			"user_uuid": {
 				Type: schema.TypeString,
 				Required: true,
 				Description: "The UUID for configuration",
