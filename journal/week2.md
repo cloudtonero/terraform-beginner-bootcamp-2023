@@ -56,4 +56,9 @@ bundle exec ruby server.rb
 All of the code for our server is stored in the `server.rb` file.
 
 
+## CRUD
 
+Terraform Provider resources yltilize crud.
+CRUD stands for CREATE, READ , UPDATE, DELETE
+
+[CRUD Article](https://www.sumologic.com/glossary/crud/)
