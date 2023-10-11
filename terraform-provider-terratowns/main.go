@@ -14,6 +14,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
+
 )
 // func main(): Defines the main function, the entry point of the app. 
 // When you run the program, it starts executing from this function.
@@ -31,6 +32,7 @@ type Config struct {
 	Token string
 	UserUuid string
 }
+
 
 // in golang, a titlecase function will get exported.
 func Provider() *schema.Provider {
@@ -58,6 +60,7 @@ func Provider() *schema.Provider {
 				Type: schema.TypeString,
 				Required: true,
 				Description: "UUID for configuration",
+
 				ValidateFunc: validateUUID,
 			},
 		},
@@ -67,10 +70,12 @@ func Provider() *schema.Provider {
 }
 
 func validateUUID(v interface{}, k string) (ws []string, errors []error) {
+
 	log.Print("validateUUID:start")
 	value := v.(string)
 	if _, err := uuid.Parse(value); err != nil {
 		errors = append(errors, fmt.Errorf("invalid UUID format"))
+
 	}
 	log.Print("validateUUID:end")
 	return
@@ -183,11 +188,11 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 	d.SetId(homeUUID)
 
 	log.Print("resourceHouseCreate:end")
-
 	return diags
 }
 
 func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+<<<<<<< HEAD
 	log.Print("resourceHouseRead:start")
 	var diags diag.Diagnostics
 
@@ -233,6 +238,7 @@ func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{
 	}
 
 	log.Print("resourceHouseRead:end")
+
 
 	return diags
 }
