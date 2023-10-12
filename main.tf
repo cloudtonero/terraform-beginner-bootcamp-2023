@@ -7,9 +7,9 @@ terraform {
   }
 }
 provider "terratowns" {
-  endpoint  = "http://localhost:4567/api"
-  user_uuid = "e328f4ab-b99f-421c-84c9-4ccea042c7d1"
-  token     = "9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
+  endpoint  = var.terratowns_endpoint
+  user_uuid = var.teacherseat_user_uuid
+  token     = var.terratowns_access_token
 }
 
 #terraform {
@@ -22,28 +22,24 @@ provider "terratowns" {
 #}
 #}
 
-# module "terrahouse_aws" {
-#   source = "./modules/terrahouse_aws"
-#   user_uuid = var.user_uuid
-#   bucket_name = var.bucket_name
-#   index_html_filepath = var.index_html_filepath
-#   error_html_filepath = var.error_html_filepath
-#   content_version = var.content_version
-#   assets_path = var.assets_path
+module "terrahouse_aws" {
+  source = "./modules/terrahouse_aws"
+  user_uuid = var.teacherseat_user_uuid
+  bucket_name = var.bucket_name
+  index_html_filepath = var.index_html_filepath
+  error_html_filepath = var.error_html_filepath
+  content_version = var.content_version
+  assets_path = var.assets_path
 
-# }
+}
 
 resource "terratowns_home" "arcanum"{
   name = "How to play Arcanum in 2023!--aa!"
   description = <<DESCRIPTION
-Arcanum is a game from 2001 that shipped with alot of bugs.
-Modders have removed all the original issues , making this game fun to play
-(Despite the old graphics ). This is my guild that will show you how to play arcanum.
-without spoiling the plot.
+God of War Ragnarök is an action-adventure game developed by Santa Monica Studio and published by Sony Interactive Entertainment. It was released worldwide on November 9, 2022, for both the PlayStation 4 and PlayStation 5, marking the first cross-gen release in the God of War series. It is the ninth installment in the series, the ninth chronologically, and the sequel to 2018's God of War. Loosely based on Norse mythology, the game is set in ancient Scandinavia and features series protagonist, Kratos, and his now teenage son, Atreus. Concluding the Norse era of the series, the game covers Ragnarök, the eschatological event which is central to Norse mythology and was foretold to happen in the previous game after Kratos killed the Aesir god Baldur.
 DESCRIPTION
-  town = "gamers-grotto"
+  town = "missingo"
   content_version =  1
-  //domain_name = module.terrahouse_aws.cdn_domain_name
-  domain_name = "3xxx.cloudfront.net"
-  
+  domain_name = module.terrahouse_aws.cdn_domain_name
+  //domain_name = "3456.cloudfront.net"
 }
