@@ -1,4 +1,4 @@
-user_uuid = "2856dcf6-7850-4aa2-bacd-b9ec64fa6495"
+teacherseat_user_uuid = "2856dcf6-7850-4aa2-bacd-b9ec64fa6495"
 
 bucket_name = "ynzmsotoyokpxshl"
 
@@ -10,3 +10,5 @@ error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.ht
 assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets"
 
 content_version=1
+
+terratowns_endpoint="https://terratowns.cloud/api"

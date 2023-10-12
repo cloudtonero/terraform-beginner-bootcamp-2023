@@ -192,7 +192,6 @@ func resourceHouseCreate(ctx context.Context, d *schema.ResourceData, m interfac
 }
 
 func resourceHouseRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
-<<<<<<< HEAD
 	log.Print("resourceHouseRead:start")
 	var diags diag.Diagnostics
 
