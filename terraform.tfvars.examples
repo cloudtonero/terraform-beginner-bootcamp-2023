@@ -2,13 +2,15 @@ teacherseat_user_uuid = "2856dcf6-7850-4aa2-bacd-b9ec64fa6495"
 
 bucket_name = "ynzmsotoyokpxshl"
 
-index_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/index.html"
-
-error_html_filepath="/workspace/terraform-beginner-bootcamp-2023/public/error.html"
-
-
-assets_path="/workspace/terraform-beginner-bootcamp-2023/public/assets"
-
-content_version=1
-
 terratowns_endpoint="https://terratowns.cloud/api"
+
+
+arcanum = {
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/arcanum"
+    content_version = 1
+}
+
+akara = {
+    public_path = "/workspace/terraform-beginner-bootcamp-2023/public/akara"
+    content_version = 1
+}
