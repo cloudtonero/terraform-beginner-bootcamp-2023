@@ -7,6 +7,10 @@ output "s3_website_endpoint" {
   value = module.home_arcanum.website_endpoint
 }
 
-output "cdn_domain_name" {
+output "arcanum_cdn_domain_name" {
   value = module.home_arcanum.cdn_domain_name
+}
+
+output "akara_cdn_domain_name" {
+  value = module.home_akara.cdn_domain_name
 }
