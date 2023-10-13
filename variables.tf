@@ -16,23 +16,18 @@ variable "bucket_name" {
   type        = string
 }
 
-variable "index_html_filepath" {
-  description = "Path to the index.html file"
-  type        = string
+variable "arcanum" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
 
-variable "error_html_filepath" {
-  description = "Path to the error.html file"
-  type        = string
+variable "akara" {
+  type = object({
+    public_path = string
+    content_version = number
+  })
 }
 
-variable "content_version" {
-  description = "Content Version (Positive Integer)"
-  type        = number
-}
 
-variable "assets_path" {
-  description = "Path to asset folder"
-  type = string
-
-}

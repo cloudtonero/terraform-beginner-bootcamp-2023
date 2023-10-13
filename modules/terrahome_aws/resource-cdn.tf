@@ -5,7 +5,7 @@ locals {
 
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_origin_access_control
 resource "aws_cloudfront_origin_access_control" "s3_oac" {
-  name                              = "OAC-${var.bucket_name}"
+  name                              = "OAC-${aws_s3_bucket.website_bucket.bucket}"
   description                       = "Origin Access control for static website hosting for ${var.bucket_name}"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
